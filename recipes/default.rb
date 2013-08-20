@@ -11,7 +11,7 @@ bash "install npm packages" do
   cwd "/home/vagrant"
   user "root"
   code <<-EOH
-    npm install -g grunt-cli
+    npm install -g grunt-cli bower testem
   EOH
 end
 
