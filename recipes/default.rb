@@ -7,6 +7,14 @@
 # All rights reserved - Do Not Redistribute
 #
 
+apt_package "libicu48" do
+    action :install
+end
+
+apt_package "phantomjs" do
+    action :install
+end
+
 bash "install npm packages" do
   cwd "/home/vagrant"
   user "root"
