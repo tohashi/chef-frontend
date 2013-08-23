@@ -82,6 +82,7 @@ Vagrant.configure("2") do |config|
     chef.run_list = [
         "recipe[git]",
         "recipe[nodejs]",
+        "recipe[phantomjs]",
         "recipe[chef-frontend::default]"
     ]
   end
