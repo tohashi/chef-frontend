@@ -7,12 +7,19 @@
 # All rights reserved - Do Not Redistribute
 #
 
-apt_package "libicu48" do
-    action :install
+git "/home/vagrant/phantomjs" do
+  repository "git://github.com/ariya/phantomjs.git"
+  revision "1.9"
+  user "root"
+  action :checkout
 end
 
-apt_package "phantomjs" do
-    action :install
+bash "install phantomjs" do
+  cwd "/home/vagrant/phantomjs"
+  user "root"
+  code <<-EOH
+    ./build.sh
+  EOH
 end
 
 bash "install npm packages" do
