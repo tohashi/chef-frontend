@@ -21,8 +21,8 @@ bash "install casperjs" do
   user "root"
   code <<-EOH
     ln -s `pwd`/bin/casperjs #{extract_path}/casperjs
-  EOH
-  not_if { ::File.exists?(extract_path) }
+    EOH
+  not_if { ::File.exists?("#{extract_path}/casperjs") }
 end
 
 bash "install npm packages" do
@@ -30,6 +30,6 @@ bash "install npm packages" do
   user "root"
   code <<-EOH
     npm install -g grunt-cli bower testem
-  EOH
+    EOH
 end
 
