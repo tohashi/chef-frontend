@@ -7,9 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-extract_path = "/usr/local/bin"
-
-git "/home/vagrant/casperjs" do
+git "/home/casperjs" do
     repository "git://github.com/n1k0/casperjs.git"
     user "root"
     revision "1.1-beta1"
@@ -17,16 +15,15 @@ git "/home/vagrant/casperjs" do
 end
 
 bash "install casperjs" do
-  cwd "/home/vagrant/casperjs"
+  cwd "/home/casperjs"
   user "root"
   code <<-EOH
-    ln -s `pwd`/bin/casperjs #{extract_path}/casperjs
+    ln -sf `pwd`/bin/casperjs /usr/local/bin/casperjs
     EOH
-  not_if { ::File.exists?("#{extract_path}/casperjs") }
 end
 
 bash "install npm packages" do
-  cwd "/home/vagrant"
+  cwd "/home"
   user "root"
   code <<-EOH
     npm install -g grunt-cli bower testem
