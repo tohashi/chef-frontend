@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-git "/home/casperjs" do
+git "/vagrant/casperjs" do
     repository "git://github.com/n1k0/casperjs.git"
     user "root"
     revision "1.1-beta1"
@@ -15,7 +15,7 @@ git "/home/casperjs" do
 end
 
 bash "install casperjs" do
-  cwd "/home/casperjs"
+  cwd "/vagrant/casperjs"
   user "root"
   code <<-EOH
     ln -sf `pwd`/bin/casperjs /usr/local/bin/casperjs
