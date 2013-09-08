@@ -26,7 +26,7 @@ bash "install npm packages" do
   cwd "/home"
   user "root"
   code <<-EOH
-    npm install -g grunt-cli bower testem
+    npm install -g grunt-cli coffee-script bower testem
     EOH
 end
 
